@@ -1,0 +1,63 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+
+::-moz-selection { /* Code for Firefox */
+	color: white;
+	background: lightblue;
+  }
+  
+  ::selection {
+	color: white;
+	background: lightblue;
+  }
+
+a
+{
+	color:rgb(47, 131, 205);
+}
+
+.dark .footer-widgets-wrap a
+{
+	color:rgb(47, 131, 205);
+}
+
+li.menu-item:hover a.menu-link:hover {
+	color:rgb(47, 131, 205);
+}
+
+body.dark
+{
+	background-color:rgba(25, 28, 30, 255);
+}
+
+.dark #header-wrap
+{
+	background-color:rgba(15, 18, 20, 255);
+}
+
+.dark #content
+{
+	background-color:rgba(15, 18, 20, 255);
+}
+
+.dark #page-title
+{
+	background-color:rgba(30, 32, 34, 255);
+}
+
+.dark #footer
+{
+	background-color:rgba(30, 32, 34, 255);
+}
+
+.section.my-0
+{
+	background-color:rgba(25, 28, 30, 255);
+}
+
+.color { color: lightblue !important; }

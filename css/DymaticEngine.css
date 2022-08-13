@@ -1,0 +1,279 @@
+@charset "UTF-8";
+@font-face{
+	font-family: 'Futura-Light';
+	src: url("../assets/Fonts/Futura/Futura Std Light.ttf");
+}
+@font-face{
+	font-family: 'Neuzeit-Grotesk';
+	src: url("../assets/Fonts/DIN Neuzeit Grotesk Bold/DIN Neuzeit Grotesk Bold.otf");
+}
+
+/* CSS Document */
+/*ecomomica, cuprum*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body
+{
+	/*background-color: #292929;*/
+	background-color: #5ae0e0;
+	font-family: Futura-Light;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
+  	color: white;
+	font-family: Futura-Light;
+}
+
+.DymaticMainCircleLogo
+{
+	width: 20%;
+}
+
+@keyframes circlePulseAnimationKeyframes
+{
+	0% {transform: scale3d(0.75, 0.75 , 0.75); opacity: 0.1;}
+	10% {opacity: 0.75;}
+	50% {transform: scale3d(3.5, 3.5, 3.5); opacity: 0;}
+	100% {transform: scale3d(3.5, 3.5 , 3.5); opacity: 0;}
+}
+
+.LogoPulseAnimation
+{
+	position: absolute;
+	width: 20%;
+	animation-name: circlePulseAnimationKeyframes;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	z-index: -5
+}
+
+.DymaticMainTitleText
+{
+	font-family: Neuzeit-Grotesk;
+	font-size: 75px;
+	margin-bottom: -12.5px;
+}
+
+.DymaticSubTitleText
+{
+	font-size: 22px;
+}
+
+.MainImageContainerDiv
+{
+	display: inline-block;
+}
+
+#MainCircleLogoOuter, #MainCircleLogoInner
+{
+	transition: all 0.3s ease;
+}
+
+.MainCircleHoverOuter
+{
+	transform: scale3d(1.1, 1.1, 1.1);
+	transition: all 0.3s ease;
+}
+
+.MainCircleHoverInner
+{
+	transform: scale3d(0.9, 0.9, 0.9);
+	transition: all 0.3s ease;
+}
+
+.HomeMainTitleVideo
+{
+	position: absolute;
+	/*filter: hue-rotate(180deg) brightness(0.5) blur(5px);*/
+	height: 110vh;
+	z-index: -10;
+}
+
+.HomeMainTitleContainer
+{
+	position: relative;
+	margin-bottom: 20px;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.HomeMainTitleContainerHider
+{
+	overflow: hidden;
+}
+
+.LogoOuterExpand 
+{
+	transform: scale(1.15);
+	transition: 1s;
+}
+.LogoInnerShrink
+{
+	transform: scale(0.85);
+	transition: 1s;
+}
+
+.BigSubmitButton
+{
+	width: 20%;
+	height: 6%;
+	background-color: #263144;
+	border-color: white;
+	border-radius: 5px;
+	transition: all 0.2s ease;
+}
+
+.BigSubmitButton:hover
+{
+	width: 21%;
+	height: 10%;
+	background-color: #425A84;
+	transition: all 0.2s ease;
+}
+
+.centerText {
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+}
+
+.centerImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centerContainer
+{
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes fadeInEarly {
+0% {opacity:0;}
+5% {opacity:0;}
+50% {opacity:1;}
+}
+
+@keyframes fadeInNormal {
+0% {opacity:0;}
+10% {opacity:0;}
+75% {opacity:1;}
+}
+
+@keyframes fadeInLate {
+0% {opacity:0;}
+20% {opacity:0;}
+75% {opacity:1;}
+}
+
+.FadeInAnimationEarly.start
+{
+	animation-name: fadeInEarly;
+  	animation-duration: 4s;
+}
+
+.FadeInAnimationNormal.start
+{
+	animation-name: fadeInNormal;
+  	animation-duration: 4s;
+}
+
+.FadeInAnimationLate.start
+{
+	animation-name: fadeInLate;
+  	animation-duration: 4s;
+}
+
+.overlay{
+    background-color:#151515;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+}
+
+.hidden
+{
+	display: none;
+}
+
+.pagechangediv{opacity: 0; transition: all 0.2s ease;}
+.faded{opacity: 1; transition: all 0.2s ease;}
+
+#wrapper {
+    -webkit-perspective: 1000;
+}
+
+ .ExploreSection {
+	background-color: #1a1c1e;
+ }
+
+ .ExploreSection > h1, p { color: white; }
+
+ @keyframes seeMoreArrowKeyframes
+ {
+	 0%   { transform: translateY(-10px); }
+	 50%  { transform: translateY( 20px); }
+	 100% { transform: translateY(-10px); }
+ }
+
+ #seeMoreArrow {
+	animation-name: seeMoreArrowKeyframes;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	font-size: 30px;
+ }
+
+ /* Button Template */
+.button-6 {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+  transform: translateY(-5px);
+}
+
+.button-6:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
