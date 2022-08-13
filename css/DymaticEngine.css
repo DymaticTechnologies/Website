@@ -43,12 +43,18 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 .LogoPulseAnimation
 {
 	position: absolute;
-	width: 20%;
+	height: 40vh;
 	animation-name: circlePulseAnimationKeyframes;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
-	z-index: -5
+	z-index: -1
 }
+
+@media screen and (max-width: 600px) {
+	.LogoPulseAnimation {
+	  visibility: hidden;
+	}
+  }
 
 .DymaticMainTitleText
 {
@@ -89,7 +95,7 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 	position: absolute;
 	min-width: 105vw;
 	min-height: 105vh;
-	z-index: -1;
+	z-index: -5;
 }
 
 .HomeMainTitleContainer
@@ -103,6 +109,13 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 {
 	overflow: hidden;
 }
+
+/* Disable Video on Mobile */
+@media screen and (max-width: 600px) {
+	.HomeMainTitleContainerHider {
+	  visibility: hidden;
+	}
+  }
 
 .LogoOuterExpand 
 {
@@ -279,3 +292,8 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 
 #standard-logo { transition: 0.5s; }
 .sticky-header-shrink #standard-logo { transform: scale(0.75); transition: 0.5s; }
+#retina-logo { transform: scale(0.75); }
+
+.device-xs #standard-logo { transform: scale(0.75); }
+.device-sm #standard-logo { transform: scale(0.75); }
+.device-md #standard-logo { transform: scale(0.75); }
