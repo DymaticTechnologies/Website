@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 
 .DymaticMainCircleLogo
 {
-	width: 20%;
+	height: 40vh;
 }
 
 @keyframes circlePulseAnimationKeyframes
@@ -53,13 +53,13 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 .DymaticMainTitleText
 {
 	font-family: Neuzeit-Grotesk;
-	font-size: 75px;
+    font-size: min(15vw, 75px);
 	margin-bottom: -12.5px;
 }
 
 .DymaticSubTitleText
 {
-	font-size: 22px;
+	font-size: min(4vw, 22px);
 }
 
 .MainImageContainerDiv
@@ -87,16 +87,15 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 .HomeMainTitleVideo
 {
 	position: absolute;
-	/*filter: hue-rotate(180deg) brightness(0.5) blur(5px);*/
-	height: 110vh;
-	z-index: -10;
+	min-width: 105vw;
+	min-height: 105vh;
+	z-index: -1;
 }
 
 .HomeMainTitleContainer
 {
 	position: relative;
 	margin-bottom: 20px;
-	height: 100vh;
 	overflow: hidden;
 }
 
@@ -277,3 +276,6 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
 }
+
+#standard-logo { transition: 0.5s; }
+.sticky-header-shrink #standard-logo { transform: scale(0.75); transition: 0.5s; }

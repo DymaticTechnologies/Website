@@ -2,10 +2,20 @@
 <html dir="ltr" lang="en-US">
 <meta charset="UTF-8">
   <head>
+    <meta name="google-site-verification" content="c2ADviDM_fCwGdnJ8gqAV8mhwRNe8FNcpT7Avkmomco"/>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dymatic Engine</title>
     <link rel="shortcut icon" type="image/png" href="../assets/Icons/DymaticLogoWhite.png" width="200">
+
+      <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="nitrochat">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+    <link rel="apple-touch-icon" href="../assets/Icons/DymaticLogoIcon.png">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
@@ -22,7 +32,7 @@
     
 </head>
 
-<body onload="OnCreate()" onresize="OnWindowResize()" id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video">
+<body onload="OnCreate()" onresize="OnWindowResize()" id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video" style="overflow-x:hidden;">
 
 <div class="overlay faded pagechangediv" id="startupdiv"></div>
 <div class="overlay hidden pagechangediv" id="pagefadediv"></div>
@@ -34,8 +44,8 @@
 
         <!-- Logo -->
         <div id="logo">
-          <a href="./DymaticEngine.html" class="standard-logo" data-dark-logo="../assets/Icons/Logo/banner/banner.png" style="height: 50px !important;"><img src="../assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
-          <a href="./DymaticEngine.html" class="retina-logo" data-dark-logo="../assets/Icons/Logo/banner/banner.png"  style="height: 50px !important;"><img src="../assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
+          <a href="./index.html" class="standard-logo" data-dark-logo="../assets/Icons/Logo/banner/banner.png" style="height: 50px !important;"><img style="transition: 0.5s;" id="standard-logo" src="../assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
+          <a href="./index.html" class="retina-logo" data-dark-logo="../assets/Icons/Logo/banner/banner.png"  style="height: 50px !important;"><img id="retina-logo" src="../assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
         </div><!-- #logo end -->
 
         <div class="header-misc">
@@ -86,10 +96,9 @@
   <div class="HomeMainTitleContainerHider">
 	  <video id="BackgroundParallaxVideo" class="HomeMainTitleVideo" playsinline autoplay muted loop>
       <source src="../assets/Videos/MainHomeBackgroundLoop.mp4" type"video/mp4"></video>
-      <!--<img src="../assets/Videos/MainHomeBackground.png" id="BackgroundParallaxVideo" class="HomeMainTitleVideo">-->
   </div>
 
-  <div class="centerContainer MainImageContainerDiv" style="width: 100%; margin-top: 150px;">
+  <div class="centerContainer MainImageContainerDiv" style="width: 100%; margin-top: 175px;">
     <img src="../assets/Icons/DymaticLogoCircleOutline.png" class="DymaticMainCircleLogo FadeInAnimationNormal" alt="Dymatic Logo In Circle" id="MainCircleLogoOuter">
     <img src="../assets/Icons/DymaticLogoCircleMain.png" class="DymaticMainCircleLogo FadeInAnimationLate" style="position:absolute" alt="Dymatic Logo In Circle" id="MainCircleLogoInner" onmouseover="MainDymaticCircleHovered()" onmouseout="MainDymaticCircleNormal()">
     <img src="../assets/Images/ShockwaveEffect.png" class="LogoPulseAnimation" style="animation-delay: 0.2s">
@@ -102,7 +111,6 @@
   <h1 class="DymaticSubTitleText FadeInAnimationEarly centerText">A GAME DESIGN TOOL FROM THE FUTURE</h1>
   <br>
   <p class="centerText">EXPLORE ENDLESS POSSIBILITIES</p>
-  <!--<button class="BigSubmitButton FadeInAnimationLate centerImage" type="submit">GET STARTED NOW</button>-->
 
   <div class="centerContainer">
     <h1 id="seeMoreArrow" class="material-icons" style="text-align: center !important;" onclick="ScrollToMainContent()">expand_more</h1>
@@ -265,8 +273,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="../js/router.js"></script>
-
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="../js/plugins.min.js"></script>
 <script src="../js/SetFooterCounters.js"></script>
