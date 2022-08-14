@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <style>
+      .center {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: min(200px, min(60vw, 50vh));
+        max-width: 50vw;
+        min-height: min(200px, min(60vw, 50vh));
+        max-height: 50vh;
+      }
+
+      .text_div {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 22.5vh);
+
+        text-align: center;
+      }
+
+      .main_logo {
+        pointer-events: none;
+        position: fixed;
+        width: 100%;
+      }
+
+      .circle {
+        min-width: min(200px, min(60vw, 50vh));
+        max-width: 50vw;
+        min-height: min(200px, min(60vw, 50vh));
+        max-height: 50vh;
+        border: solid white 3px;
+        border-radius: 50%;
+        animation-name: circle-pulse;
+        animation-duration: 2s;
+        animation-iteration-count:infinite;
+        animation-timing-function: ease-in-out;
+        position: fixed;
+      }
+
+      @keyframes circle-pulse {
+      0%    {transform: scale(1.25); }
+      50%   {transform: scale(1.75); }
+      100%  {transform: scale(1.25); }
+      }
+
+      @font-face{
+	      font-family: 'Futura-Light';
+	      src: url("assets/Fonts/Futura/Futura Std Light.ttf");
+      }
+
+      body {
+        background-color: rgba(25, 28, 30, 255);
+        color: white;
+      }
+    </style>
+
+<title>Page Not Found</title>
+<link rel="shortcut icon" type="image/png" href="assets/Icons/DymaticLogoWhite.png" width="200">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Dymatic Engine">
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Dymatic Engine">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+  <link rel="apple-touch-icon" href="assets/Icons/DymaticLogoIcon.png">
+
+  <!-- Tile icon for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <meta name="msapplication-navbutton-color" content="#303F9F">
+</head>
+
+<body>
+  <div class="center">
+    <img src="assets/Icons/DymaticLogoWhite.png" class="main_logo">
+    <div class="circle"></div>
+  </div>
+
+  <div class="text_div">
+    <h3 style="font-family: Futura-Light; font-size: min(35px, 7vw);">Page Not Found</h3>
+    <h5 style="font-family: Futura-Light; font-size: min(25px, 6vw);">Error 404</h5>
+  </div>
+</body></html>
