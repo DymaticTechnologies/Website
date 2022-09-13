@@ -152,6 +152,16 @@ function LoadMainVideo()
     document.querySelector("#BackgroundParallaxVideo").innerHTML = '<source src="assets/Videos/MainHomeBackgroundLoop.mp4" type"video/mp4">';
 }
 
+function DisableSelection()
+{
+  var elements = document.getElementsByClassName("unselectable_item");
+  for (const element of elements) {
+    if (element.tagName == 'IMG') {
+      element.setAttribute("draggable", "false");
+    }
+  }
+}
+
 // OnCreate function
 function OnCreate()
 	{
@@ -167,6 +177,8 @@ function OnCreate()
 
     // Trigger a particle resize so everything is sized correctly
     ParticleResizeEvent();
+
+    DisableSelection();
 
     LoadMainVideo();
 
