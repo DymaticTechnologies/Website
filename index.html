@@ -44,7 +44,7 @@
     
 </head>
 
-<body onload="OnCreate()" onresize="OnWindowResize()" id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video" style="overflow-x:hidden;">
+<body onload="OnCreate()" id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video" style="overflow-x:hidden;">
 
 <div class="overlay faded pagechangediv" id="startupdiv"></div>
 <div class="overlay hidden pagechangediv" id="pagefadediv"></div>
@@ -57,14 +57,15 @@
         <!-- Logo -->
         <div id="logo">
           <a href="./index.html" class="standard-logo" data-dark-logo="assets/Icons/Logo/banner/banner.png" style="height: 50px !important;"><img style="transition: 0.5s;" id="standard-logo" src="assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
-          <a href="./index.html" class="retina-logo" data-dark-logo="assets/Icons/Logo/banner/banner.png"  style="height: 50px !important;"><img id="retina-logo" src="assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
+          <a href="./index.html" class="retina-logo" data-dark-logo="assets/Icons/Logo/banner/banner.png"  style="height: 50px !important;"><img style="transition: 0.5s;" id="retina-logo" src="assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
         </div><!-- #logo end -->
 
         <div class="header-misc">
 
           <!-- Top Search -->
           <div id="top-search" class="header-misc-icon">
-            <a href="#"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
+            <a href="#"><span class="material-icons">search</span></a>
+            <!--<a href="#"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>-->
           </div><!-- #top-search end -->
 
         </div>
@@ -108,14 +109,13 @@
 <div class="HomeMainTitleContainer" style="margin-top: -100px;">
 
   <div class="HomeMainTitleContainerHider">
-	  <video id="BackgroundParallaxVideo" class="HomeMainTitleVideo" playsinline autoplay muted loop>
-      <source src="assets/Videos/MainHomeBackgroundLoop.mp4" type"video/mp4"></video>
+	  <video id="BackgroundParallaxVideo" class="HomeMainTitleVideo" playsinline autoplay muted loop></video>
   </div>
 
   <div class="centerContainer MainImageContainerDiv" style="width: 100%; margin-top: 175px;">
-    <img src="assets/Icons/DymaticLogoCircleOutline.png" class="DymaticMainCircleLogo FadeInAnimationNormal" alt="Dymatic Logo In Circle" id="MainCircleLogoOuter">
-    <img src="assets/Icons/DymaticLogoCircleMain.png" class="DymaticMainCircleLogo FadeInAnimationLate" style="position:absolute" alt="Dymatic Logo In Circle" id="MainCircleLogoInner" onmouseover="MainDymaticCircleHovered()" onmouseout="MainDymaticCircleNormal()">
-    <img src="assets/Images/ShockwaveEffect.png" class="LogoPulseAnimation" style="animation-delay: 0.2s">
+    <img src="assets/Icons/DymaticLogoCircleOutline.png" class="unselectable_item DymaticMainCircleLogo FadeInAnimationNormal" alt="Dymatic Logo In Circle" id="MainCircleLogoOuter">
+    <img src="assets/Icons/DymaticLogoCircleMain.png" class="unselectable_item DymaticMainCircleLogo FadeInAnimationLate" style="position:absolute" alt="Dymatic Logo In Circle" id="MainCircleLogoInner" onmouseover="MainDymaticCircleHovered()" onmouseout="MainDymaticCircleNormal()">
+    <img src="assets/Images/ShockwaveEffect.png" class="unselectable_item LogoPulseAnimation" style="animation-delay: 0.2s">
   </div>
   
   <br>
@@ -127,7 +127,7 @@
   <p class="centerText">EXPLORE ENDLESS POSSIBILITIES</p>
 
   <div class="centerContainer">
-    <h1 id="seeMoreArrow" class="material-icons" style="text-align: center !important;" onclick="ScrollToMainContent()">expand_more</h1>
+    <h1 id="seeMoreArrow" class="material-icons" style="text-align: center !important; cursor: pointer;" onclick="ScrollToMainContent()"  >expand_more</h1>
   </div>
 </div>
   
@@ -147,10 +147,10 @@
         <p><a href="about.html">Learn More...</a></p>
       </div>
 
-      <div class="col-lg-7 align-self-end" style="max-width: 50%;">
-        <div class="position-relative">
-          <img src="assets/Images/EditorScreenshot.png" data-animate="fadeInUp" data-delay="100" alt="Chrome" class="fadeInUp animated">
-          <img src="assets/Icons/DymaticLogoWhite.png" style="top: 0; left: 15%; width: 50%;" data-animate="fadeInUp" data-delay="400" alt="iPhone" id="logoOntop" class="position-absolute animated">
+      <div class="col-lg-7 align-self-end" style="max-width: 100%;">
+        <div class="position-relative overflow-hidden">
+          <img src="assets/Images/EditorScreenshot.png" data-animate="fadeInUp" data-delay="000" alt="iPhone" class="not-animated">
+          <img src="assets/Icons/DymaticLogoWhite.png" style="top: 0; left: 15%; width: 50%;" data-animate="fadeInUp" data-delay="100" alt="iPhone" id="logoOntop" class="position-absolute not-animated">
         </div>
       </div>
 
@@ -167,25 +167,25 @@
   <h1>ENDLESS POSSIBILITIES</h1>
   <br>
   <br>
-  <p>Dymatic is an in development game engine, providing a powerful set of tools. The engine currently only supports windows and requires Microsoft Visual Studio to build.</p>
+  <p style="margin-left: 15px; margin-right: 15px;">Dymatic is an in development game engine, providing a powerful set of tools. The engine currently only supports windows and requires Microsoft Visual Studio to build.</p>
   <br>
   <br>
-  <div class="col-md-4 col-lg-12">
+  <div class="col-md-12 col-lg-12">
     <div class="widget clearfix" style="margin-bottom: -20px;">
-      <div class="row">
+      <div class="row text-center">
         <div class="col-lg-2 bottommargin-sm"></div>
         <div class="col-lg-4 bottommargin-sm">
           <div style="height: 2px; width: 90%; background-color: rgba(255,255,255,0.7);"></div>
           <br>
           <h2>Download Dymatic Engine</h2>
-          <p style="text-align: left;" >Get access to Dymatic's source code, download it, build and experience the full 3D toolset to create commercial quality games.</p>
+          <p style="text-align: left; margin-left: 15px; margin-right: 15px;" >Get access to Dymatic's source code, download it, build and experience the full 3D toolset to create commercial quality games.</p>
           <a href="https://www.github.com/BenC25/Dymatic" target="_blank"><button class="button-6" role="button" >DOWNLOAD</button></a>
         </div>
         <div class="col-lg-4 bottommargin-sm">
           <div style="height: 2px; width: 90%; background-color: rgba(255,255,255,0.7);"></div>
           <br>
           <h2> Explore Documentation</h2>
-          <p style="text-align: left;" >Explore the complete documentation regarding all of Dymatic's core features and systems, as well as other ways to gain support.</p>
+          <p style="text-align: left; margin-left: 15px; margin-right: 15px;" >Explore the complete documentation regarding all of Dymatic's core features and systems, as well as other ways to gain support.</p>
           <a href="https://docs.dymaticengine.com" target="_blank"><button class="button-6" role="button" >VIEW DOCUMENTATION</button></a>
         </div>
         <div class="col-lg-2 bottommargin-sm"></div>
@@ -206,9 +206,9 @@
 
     <h2>Statistics</h2>
     
-    <div class="col-md-4 col-lg-12">
+    <div class="col-md-12 col-lg-12">
       <div class="widget clearfix" style="margin-bottom: -20px;">
-        <div class="row">
+        <div class="row text-center">
           <div class="col-lg-4 bottommargin-sm">
             <div class="counter counter-small"><span id="github_star_count" data-from="0" data-refresh-interval="80" data-speed="2000" data-comma="true">0</span></div>
             <h5 class="mb-0">Stars</h5>
@@ -247,22 +247,25 @@
 
   <div class="col-md-12 col-lg-12">
     <div class="widget clearfix" style="margin-bottom: -20px;">
-      <div class="row">
+      <div class="row text-center">
         <div class="col-lg-2 bottommargin-sm">
+          <br>
           <h5>PRODUCTS</h5>
-          <p>Dymatic Engine</p>
-          <p>Source Code</p>
+          <a href="https://www.dymaticengine.com"><div>Dymatic Engine</div></a>
+          <br>
+          <a href="https://www.github.com/BenC25/Dymatic"><div>Source Code</div></a>
         </div>
         <div class="col-lg-2 bottommargin-sm">
-          <p>SUPPORT</p>
-          <p>Documentation</p>
+          <br>
+          <h5>PRODUCTS</h5>
+          <a href="https://docs.dymaticengine.com"><div>Documentation</div></a>
         </div>
         <div class="col-lg-1 bottommargin-sm"></div>
         <div class="col-lg-2 bottommargin-sm">
           <!-- Logo -->
-          <img src="assets/Icons/Logo/white/Logo.svg" height="75%" style="margin-left: 12.5%; margin-top: 12.5%">
+          <img src="assets/Icons/Logo/white/Logo.svg" height="100vh" >
         </div>
-        <div class="col-lg-1 bottommargin-sm"></div>
+        <div class="col-lg-1 bottommargin-sm "></div>
         <div class="col-lg-4 bottommargin-sm">
           <!-- Headquatered -->
           <div style="position: relative; text-align: center;">

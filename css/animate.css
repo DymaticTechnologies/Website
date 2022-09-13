@@ -2037,6 +2037,7 @@
 .fadeInUp {
 	-webkit-animation-name: fadeInUp;
 	animation-name: fadeInUp;
+	transition: 1s;
 }
 @-webkit-keyframes fadeInUpBig {
 	from {

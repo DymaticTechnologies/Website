@@ -41,6 +41,11 @@ function FadeInLanguages() {
       langBreakdown.children[i].children[0].style.width = parseInt(langBreakdown.children[i].children[0].getAttribute("lang-target")) + "%";
     }
   }
+
+  var editorScreenshotLogo = document.getElementById("logoOntop");
+  if (isElementInViewport(editorScreenshotLogo)) {
+    setTimeout(function(){editorScreenshotLogo.classList.remove("fadeInUp");}, 1500);
+  }
 }
 
 // Capture scroll events
@@ -53,8 +58,8 @@ $(window).scroll(function(){
 'use strict';
 
 function setupIcons() {
-  const lightSchemeIcon = document.querySelector('link#light-scheme-icon');
-  const darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
+  const lightSchemeIcon = document.querySelector('#light-scheme-icon');
+  const darkSchemeIcon = document.querySelector('#dark-scheme-icon');
 
   function setLight() {
     document.head.append(lightSchemeIcon);
@@ -62,8 +67,8 @@ function setupIcons() {
   }
 
   function setDark() {
-    lightSchemeIcon.remove();
     document.head.append(darkSchemeIcon);
+    lightSchemeIcon.remove();
   }
 
 
@@ -78,8 +83,6 @@ function setupIcons() {
   matcher.addListener(onUpdate);
   onUpdate();
 }
-
-setupIcons();
 
 //Cookie Read and Write
 function setCookie(cname,cvalue,exdays) {
@@ -137,10 +140,16 @@ function InitLaxJS() {
     scrollY: {
       translateY: [
         ["elInY", "elCenterY", "elOutY"],
-        ['-75', 0, '75'],
+        ['-screenWidth*0.035', 0, 'screenWidth*0.035'],
       ]
     }
   });
+}
+
+function LoadMainVideo()
+{
+  if ($(window).width() >= 600)
+    document.querySelector("#BackgroundParallaxVideo").innerHTML = '<source src="assets/Videos/MainHomeBackgroundLoop.mp4" type"video/mp4">';
 }
 
 // OnCreate function
@@ -158,7 +167,10 @@ function OnCreate()
 
     // Trigger a particle resize so everything is sized correctly
     ParticleResizeEvent();
-		
+
+    LoadMainVideo();
+
+		// Display the page to the user
 		PageFade();
 	}
 	

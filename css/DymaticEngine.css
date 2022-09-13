@@ -291,8 +291,24 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 
 #standard-logo { transition: 0.5s; }
 .sticky-header-shrink #standard-logo { transform: scale(0.75); transition: 0.5s; }
-#retina-logo { transform: scale(0.75); }
-
 .device-xs #standard-logo { transform: scale(0.75); }
 .device-sm #standard-logo { transform: scale(0.75); }
 .device-md #standard-logo { transform: scale(0.75); }
+
+#retina-logo { transition: 0.5s; }
+.sticky-header-shrink #retina-logo { transform: scale(0.75); transition: 0.5s; }
+.device-xs #retina-logo { transform: scale(0.75); }
+.device-sm #retina-logo { transform: scale(0.75); }
+.device-md #retina-logo { transform: scale(0.75); }
+
+.unselectable_item
+{
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.gotoTop
+{
+	background-color: blue;
+}
