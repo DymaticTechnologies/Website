@@ -208,22 +208,26 @@
         document.head.appendChild(script); 
       }
 
-      loadScript("js/plugins.min.js");
-      loadScript("js/SetFooterCounters.js");
-      loadScript("js/bootstrap-4.4.1.js");
-      loadScript("js/particles.js");
-      loadScript("js/popper.min.js");
-
-      loadScript("https://cdn.jsdelivr.net/npm/lax.js");
-
-      loadScript("https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js");
-
-      loadScript("js/functions.js");
-
-      loadScript("js/Pages/Home.js");
-
-      loadScript("js/DymaticEngine.js", function(){
-        OnCreate();
+      loadScript("js/plugins.min.js", function() {
+        loadScript("js/SetFooterCounters.js", function() {
+          loadScript("js/bootstrap-4.4.1.js", function() {
+            loadScript("js/particles.js", function() {
+              loadScript("js/popper.min.js", function() {
+                loadScript("https://cdn.jsdelivr.net/npm/lax.js", function() {
+                  loadScript("https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js", function() {
+                    loadScript("js/functions.js", function() {
+                      loadScript("js/Pages/Home.js", function() {
+                        loadScript("js/DymaticEngine.js", function(){
+                          OnCreate();
+                      });
+                    });
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
       });
     });
   });
