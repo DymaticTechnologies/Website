@@ -196,21 +196,32 @@
 <script>
   $("#__header").load("html/Header.html", function(){
     $("#__footer").load("html/Footer.html", function(){
-      $.getScript("js/plugins.min.js");
-      $.getScript("js/SetFooterCounters.js");
-      $.getScript("js/bootstrap-4.4.1.js");
-      $.getScript("js/particles.js");
-      $.getScript("js/popper.min.js");
 
-      $.getScript("https://cdn.jsdelivr.net/npm/lax.js");
+      function loadScript( url, callback ) {
+        var script = document.createElement("script")
+  	    script.type = "text/javascript";
+        script.src = url;
+ 	      script.onload = function() {
+     	    callback()
+        };
+        document.head.appendChild(script); 
+      }
+      
+      loadScript("js/plugins.min.js");
+      loadScript("js/SetFooterCounters.js");
+      loadScript("js/bootstrap-4.4.1.js");
+      loadScript("js/particles.js");
+      loadScript("js/popper.min.js");
 
-      $.getScript("https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js");
+      loadScript("https://cdn.jsdelivr.net/npm/lax.js");
 
-      $.getScript("js/functions.js");
+      loadScript("https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js");
 
-      $.getScript("js/Pages/Home.js");
+      loadScript("js/functions.js");
 
-      $.getScript("js/DymaticEngine.js");
+      loadScript("js/Pages/Home.js");
+
+      loadScript("js/DymaticEngine.js");
     });
   });
 </script>
