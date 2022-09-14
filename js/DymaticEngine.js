@@ -86,7 +86,7 @@ function OnCreate()
 
   // Custom code for current page (defined in page js file)
   OnCreateOverride();
-
+  
 	// Display the page to the user
-	PageFade();
+	setTimeout(PageFade, 100);
 }
