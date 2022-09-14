@@ -194,31 +194,26 @@
 
 <!-- Import common scripts -->
 <script>
-  $("#__header").load("html/Header.html");
-  $("#__footer").load("html/Footer.html");
+  $("#__header").load("html/Header.html", function(){
+    $("#__footer").load("html/Footer.html", function(){
+      $.getScript("js/plugins.min.js");
+      $.getScript("js/SetFooterCounters.js");
+      $.getScript("js/bootstrap-4.4.1.js");
+      $.getScript("js/particles.js");
+      $.getScript("js/popper.min.js");
+
+      $.getScript("https://cdn.jsdelivr.net/npm/lax.js");
+
+      $.getScript("https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js");
+
+      $.getScript("js/functions.js");
+
+      $.getScript("js/Pages/Home.js");
+
+      $.getScript("js/DymaticEngine.js");
+    });
+  });
 </script>
-
-<!-- Scripts -->
-<script src="js/plugins.min.js"></script>
-<script src="js/SetFooterCounters.js"></script>
-<script src="js/bootstrap-4.4.1.js"></script>
-<script src="js/particles.js"></script>
-<script src="js/popper.min.js"></script>
-
-<!-- lax.js -->
-<script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
-
-<!-- simple-parallax.js -->
-<script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
-
-<script src="js/functions.js"></script>
-
-<!-- Local page function implimentations -->
-<script src="js/Pages/Home.js"></script>
-
-<!-- Common HTML script -->
-<script src="js/DymaticEngine.js"></script>
-
 
 </body>
 <link rel="icon"
