@@ -197,16 +197,13 @@
   $("#__header").load("html/Header.html", function(){
     $("#__footer").load("html/Footer.html", function(){
 
-      function loadScript( url, callback ) {
+      function loadScript( url ) {
         var script = document.createElement("script")
   	    script.type = "text/javascript";
         script.src = url;
- 	      script.onload = function() {
-     	    callback()
-        };
         document.head.appendChild(script); 
       }
-      
+
       loadScript("js/plugins.min.js");
       loadScript("js/SetFooterCounters.js");
       loadScript("js/bootstrap-4.4.1.js");
