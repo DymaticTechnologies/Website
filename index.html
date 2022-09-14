@@ -41,6 +41,9 @@
     <link rel="stylesheet" href="css/custom.css">
 
     <link rel="stylesheet" href="css/DymaticEngine.css">
+
+    <!-- Pre load Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
     
 </head>
 
@@ -189,11 +192,11 @@
 
 <div id="__footer"></div>
 
-<!-- Scripts -->
-<script src="js/jquery-3.4.1.min.js"></script>
-
-<!-- Common HTML script -->
-<script src="js/DymaticEngine.js"></script>
+<!-- Import common scripts -->
+<script>
+  $("#__header").load("html/Header.html");
+  $("#__footer").load("html/Footer.html");
+</script>
 
 <!-- Scripts -->
 <script src="js/plugins.min.js"></script>
@@ -212,6 +215,9 @@
 
 <!-- Local page function implimentations -->
 <script src="js/Pages/Home.js"></script>
+
+<!-- Common HTML script -->
+<script src="js/DymaticEngine.js"></script>
 
 
 </body>

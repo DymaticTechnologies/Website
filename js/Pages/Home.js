@@ -44,9 +44,7 @@ $(window).scroll(function(){
     FadeInLanguages();
 });
 
-function InitLaxJS() {
-    lax.init();
-  
+function InitLaxJSOverride() {  
     
     // Add a driver that we use to control our animations
     lax.addDriver('scrollY', function () {
@@ -59,15 +57,6 @@ function InitLaxJS() {
         translateY: [
           ["elInY", "elCenterY", "elOutY"],
           ['-screenHeight', 0, 'screenHeight'],
-        ]
-      }
-    });
-  
-    lax.addElements('#gotoTop', {
-      scrollY: {
-        opacity: [
-          [500, 550],
-          [0, 1]
         ]
       }
     });
@@ -91,7 +80,7 @@ function LoadMainVideo()
 function OnCreateOverride()
 {
     checkAnimation();
-    InitLaxJS();
+    InitLaxJSOverride();
 
     var $elem = $(".HomeLoadOverlay");
 

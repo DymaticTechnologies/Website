@@ -69,13 +69,20 @@ function PageFade(){
   setTimeout(function(){startupdiv.classList.add("hidden");}, 550);
 }
 
-// Pull html files used on all pages
-function SetupHTMLCommon()
+// Init lax JS
+function InitLaxJS()
 {
-  $("#__header").load("html/Header.html");
-  $("#__footer").load("html/Footer.html");
+  lax.init();
+
+  lax.addElements('#gotoTop', {
+    scrollY: {
+      opacity: [
+        [500, 550],
+        [0, 1]
+      ]
+    }
+  });
 }
-SetupHTMLCommon();
 
 // OnCreate function
 function OnCreate()
@@ -83,10 +90,11 @@ function OnCreate()
   // Common setup calls
 	setupIcons();
   DisableSelection();
+  InitLaxJS();
 
   // Custom code for current page (defined in page js file)
   OnCreateOverride();
-  
+
 	// Display the page to the user
 	setTimeout(PageFade, 100);
 }
