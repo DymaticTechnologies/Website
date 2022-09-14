@@ -47,7 +47,7 @@
     
 </head>
 
-<body onload="OnCreate()" id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video" style="overflow-x:hidden;">
+<body id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video" style="overflow-x:hidden;">
 
 <div id="__header"></div>
 
@@ -197,10 +197,14 @@
   $("#__header").load("html/Header.html", function(){
     $("#__footer").load("html/Footer.html", function(){
 
-      function loadScript( url ) {
+      function loadScript( url, callback ) {
         var script = document.createElement("script")
   	    script.type = "text/javascript";
         script.src = url;
+        script.onload = function () {
+          if (callback != null)
+            callback();
+        }
         document.head.appendChild(script); 
       }
 
@@ -218,7 +222,9 @@
 
       loadScript("js/Pages/Home.js");
 
-      loadScript("js/DymaticEngine.js");
+      loadScript("js/DymaticEngine.js", function(){
+        OnCreate();
+      });
     });
   });
 </script>
