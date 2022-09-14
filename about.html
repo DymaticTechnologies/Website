@@ -1,0 +1,179 @@
+<!doctype html>
+<html dir="ltr" lang="en-US">
+<meta charset="UTF-8">
+  <head>
+    <meta name="google-site-verification" content="c2ADviDM_fCwGdnJ8gqAV8mhwRNe8FNcpT7Avkmomco"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Dymatic Engine</title>
+    <link rel="shortcut icon" type="image/png" href="assets/Icons/DymaticLogoWhite.png" width="200">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Dymatic Engine">
+    <meta name="theme-color" content="#191c1e">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Dymatic Engine">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#191c1e">
+
+    <!-- Tile icon for Win8 -->
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <meta name="msapplication-navbutton-color" content="#191c1e">
+
+    <link rel="apple-touch-icon" href="assets/Icons/DymaticLogoIcon.png">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+
+    <link rel="stylesheet" href="css/bootstrap-4.4.1.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="stylesheet" href="css/DymaticEngine.css">
+    
+</head>
+
+<body onload="OnCreate()" id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video" style="overflow-x:hidden;">
+
+<div class="overlay faded pagechangediv" id="startupdiv"></div>
+<div class="overlay hidden pagechangediv" id="pagefadediv"></div>
+
+<header id="header" class="full-header transparent-header" data-sticky-class="not-dark">
+  <div id="header-wrap" style="background-color: rgba(0,0,0,0.6);">
+    <div class="container">
+      <div class="header-row top-search-parent">
+
+        <!-- Logo -->
+        <div id="logo">
+          <a href="https://www.dymaticengine.com" class="standard-logo" data-dark-logo="assets/Icons/Logo/banner/banner.png" style="height: 50px !important;"><img class="unselectable_item" style="transition: 0.5s;" id="standard-logo" src="assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
+          <a href="https://www.dymaticengine.com" class="retina-logo"   data-dark-logo="assets/Icons/Logo/banner/banner.png" style="height: 50px !important;"><img class="unselectable_item" style="transition: 0.5s;" id="retina-logo" src="assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
+        </div><!-- #logo end -->
+
+        <div class="header-misc">
+
+          <!-- Top Search -->
+          <div id="top-search" class="header-misc-icon">
+            <a href="#"><span class="unselectable_item material-icons">search</span></a>
+            <!--<a href="#"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>-->
+          </div><!-- #top-search end -->
+
+        </div>
+
+        <div id="primary-menu-trigger">
+          <svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
+        </div>
+
+        <!-- Primary Navigation -->
+        <nav class="primary-menu">
+
+          <ul class="menu-container" style="">
+            <li class="menu-item">
+              <a class="menu-link" href="https://www.dymaticengine.com" style=""><div>Home</div></a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="https://docs.dymaticengine.com" target="_blank"><div>Docs
+                <i class="icon-external-link material-icons" style="font-size: 20px;">open_in_new</i>
+              </div></a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="https://www.dymaticengine.com/products" style=""><div>Products</div></a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="https://www.dymaticengine.com/about" style=""><div>About</div></a>
+            </li>
+          </ul>
+
+        </nav><!-- #primary-menu end -->
+        
+        <form class="top-search-form" action="search.html" method="get">
+          <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div class="header-wrap-clone" style="height: 101px;"></div>
+</header>
+
+<!-- Footer -->
+<div style="padding: 20px;">
+
+  <div class="col-md-12 col-lg-12">
+    <div class="widget clearfix" style="margin-bottom: -20px;">
+      <div class="row text-center">
+        <div class="col-lg-2 bottommargin-sm">
+          <br>
+          <h5>PRODUCTS</h5>
+          <a href="https://www.dymaticengine.com"><div>Dymatic Engine</div></a>
+          <br>
+          <a href="https://www.github.com/BenC25/Dymatic"><div>Source Code</div></a>
+        </div>
+        <div class="col-lg-2 bottommargin-sm">
+          <br>
+          <h5>PRODUCTS</h5>
+          <a href="https://docs.dymaticengine.com"><div>Documentation</div></a>
+        </div>
+        <div class="col-lg-1 bottommargin-sm"></div>
+        <div class="col-lg-2 bottommargin-sm">
+          <!-- Logo -->
+          <img class="unselectable_item" src="assets/Icons/Logo/white/Logo.svg" height="100vh" >
+        </div>
+        <div class="col-lg-1 bottommargin-sm "></div>
+        <div class="col-lg-4 bottommargin-sm">
+          <!-- Headquatered -->
+          <div style="position: relative; text-align: center;">
+            <img class="unselectable_item" src="assets/Images/World.png" style="opacity: 0.3;">
+            <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Sydney, Australia</p>
+
+            <br>
+            <p style="text-align: center;">dymaticengineuser@gmail.com</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 3px; width: 80vw; background-color: #424242; margin-left: 10vw;"></div>
+  <br>
+  <p style="text-align: center;"><small>Copyright © 2022 Dymatic Technologies. All rights reserved</small></p>
+
+  <div id="gotoTop" class="material-icons unselectable_item" style="display: block;">expand_less</div>
+
+</div>
+
+<!-- Scripts -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/plugins.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+<script src="js/popper.min.js"></script>
+
+<!-- lax.js -->
+<script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
+
+<!-- simple-parallax.js -->
+<script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+
+<script src="js/functions.js"></script>
+<script src="js/Pages/About.js"></script>
+<script src="js/DymaticEngine.js"></script>
+
+</body>
+<link rel="icon"
+  href="assets/Icons/DymaticLogoBlack.png"
+  id="light-scheme-icon">
+<link rel="icon"
+  href="assets/Icons/DymaticLogoWhite.png"
+  id="dark-scheme-icon">
+</html>

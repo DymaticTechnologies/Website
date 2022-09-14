@@ -21,39 +21,6 @@ function isElementInViewport(elem) {
     return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
 }
 
-// Check if it's time to start the animation.
-function checkAnimation() {
-    var $elem = $('.FadeInAnimationEarly, .FadeInAnimationNormal, .FadeInAnimationLate');
-
-    // If the animation has already been started
-    if ($elem.hasClass('start')) return;
-
-    if (isElementInViewport($elem)) {
-        // Start the animation
-        $elem.addClass('start');
-    }
-}
-
-function FadeInLanguages() {
-  var langBreakdown = document.getElementById("LanguageBreakdown");
-  if (isElementInViewport(langBreakdown)) {
-    for (let i = 0; i < 5; i++) {
-      langBreakdown.children[i].children[0].style.width = parseInt(langBreakdown.children[i].children[0].getAttribute("lang-target")) + "%";
-    }
-  }
-
-  var editorScreenshotLogo = document.getElementById("logoOntop");
-  if (isElementInViewport(editorScreenshotLogo)) {
-    setTimeout(function(){editorScreenshotLogo.classList.remove("fadeInUp");}, 1500);
-  }
-}
-
-// Capture scroll events
-$(window).scroll(function(){
-    checkAnimation();
-    FadeInLanguages();
-});
-
 // Dynamic Logo Color
 'use strict';
 
@@ -84,74 +51,6 @@ function setupIcons() {
   onUpdate();
 }
 
-//Cookie Read and Write
-function setCookie(cname,cvalue,exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  var expires = "expires=" + d.toGMTString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-function InitLaxJS() {
-  lax.init();
-
-  
-  // Add a driver that we use to control our animations
-  lax.addDriver('scrollY', function () {
-    return window.scrollY
-  });
-
-  // Add animation bindings to elements
-  lax.addElements('#BackgroundParallaxVideo', {
-    scrollY: {
-      translateY: [
-        ["elInY", "elCenterY", "elOutY"],
-        ['-screenHeight', 0, 'screenHeight'],
-      ]
-    }
-  });
-
-  lax.addElements('#gotoTop', {
-    scrollY: {
-      opacity: [
-        [500, 550],
-        [0, 1]
-      ]
-    }
-  });
-
-  lax.addElements('#logoOntop', {
-    scrollY: {
-      translateY: [
-        ["elInY", "elCenterY", "elOutY"],
-        ['-screenWidth*0.035', 0, 'screenWidth*0.035'],
-      ]
-    }
-  });
-}
-
-function LoadMainVideo()
-{
-  if ($(window).width() >= 600)
-    document.querySelector("#BackgroundParallaxVideo").innerHTML = '<source src="assets/Videos/MainHomeBackgroundLoop.mp4" type"video/mp4">';
-}
-
 function DisableSelection()
 {
   var elements = document.getElementsByClassName("unselectable_item");
@@ -162,45 +61,32 @@ function DisableSelection()
   }
 }
 
+// Pade Fade
+function PageFade(){
+  startupdiv.classList.remove("hidden");
+  setTimeout(function(){startupdiv.classList.add("faded");}, 25);
+  setTimeout(function(){startupdiv.classList.remove("faded");}, 350);
+  setTimeout(function(){startupdiv.classList.add("hidden");}, 550);
+}
+
+// Pull html files used on all pages
+function SetupHTMLCommon()
+{
+  $("#__header").load("html/Header.html");
+  $("#__footer").load("html/Footer.html");
+}
+SetupHTMLCommon();
+
 // OnCreate function
 function OnCreate()
-	{
-		checkAnimation();
-		setupIcons();
+{
+  // Common setup calls
+	setupIcons();
+  DisableSelection();
 
-    InitLaxJS();
-		
-		var $elem = $(".HomeLoadOverlay");
+  // Custom code for current page (defined in page js file)
+  OnCreateOverride();
 
-    	// If the animation has already been started
-    	if (!$elem.hasClass("hide")) {$elem.addClass("hide")};
-
-    // Trigger a particle resize so everything is sized correctly
-    ParticleResizeEvent();
-
-    DisableSelection();
-
-    LoadMainVideo();
-
-		// Display the page to the user
-		PageFade();
-	}
-	
-	function PageFade(){
-  		startupdiv.classList.remove("hidden");
-  		setTimeout(function(){startupdiv.classList.add("faded");}, 25);
-  		setTimeout(function(){startupdiv.classList.remove("faded");}, 350);
-  		setTimeout(function(){startupdiv.classList.add("hidden");}, 550);
-	}
-
-
-// Callbacks
-
-function MainDymaticCircleNormal()  { document.getElementById("MainCircleLogoOuter").classList.remove("LogoOuterExpand"); document.getElementById("MainCircleLogoInner").classList.remove("LogoInnerShrink"); }
-function MainDymaticCircleHovered() { document.getElementById("MainCircleLogoOuter").classList.add("LogoOuterExpand"); document.getElementById("MainCircleLogoInner").classList.add("LogoInnerShrink"); }
-
-function ScrollToMainContent() {
-  document.querySelector('#ParticleCanvas').scrollIntoView({ 
-    behavior: 'smooth' 
-  });
+	// Display the page to the user
+	PageFade();
 }

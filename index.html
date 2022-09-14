@@ -46,65 +46,7 @@
 
 <body onload="OnCreate()" id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video" style="overflow-x:hidden;">
 
-<div class="overlay faded pagechangediv" id="startupdiv"></div>
-<div class="overlay hidden pagechangediv" id="pagefadediv"></div>
-
-<header id="header" class="full-header transparent-header" data-sticky-class="not-dark">
-  <div id="header-wrap" style="background-color: rgba(0,0,0,0.6);">
-    <div class="container">
-      <div class="header-row top-search-parent">
-
-        <!-- Logo -->
-        <div id="logo">
-          <a href="https://www.dymaticengine.com" class="standard-logo" data-dark-logo="assets/Icons/Logo/banner/banner.png" style="height: 50px !important;"><img class="unselectable_item" style="transition: 0.5s;" id="standard-logo" src="assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
-          <a href="https://www.dymaticengine.com" class="retina-logo"   data-dark-logo="assets/Icons/Logo/banner/banner.png" style="height: 50px !important;"><img class="unselectable_item" style="transition: 0.5s;" id="retina-logo" src="assets/Icons/Logo/banner/banner.png" alt="Dymatic Logo"></a>
-        </div><!-- #logo end -->
-
-        <div class="header-misc">
-
-          <!-- Top Search -->
-          <div id="top-search" class="header-misc-icon">
-            <a href="#"><span class="unselectable_item material-icons">search</span></a>
-            <!--<a href="#"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>-->
-          </div><!-- #top-search end -->
-
-        </div>
-
-        <div id="primary-menu-trigger">
-          <svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
-        </div>
-
-        <!-- Primary Navigation -->
-        <nav class="primary-menu">
-
-          <ul class="menu-container" style="">
-            <li class="menu-item">
-              <a class="menu-link" href="./index.html" style=""><div>Home</div></a>									
-            </li>
-            <li class="menu-item">
-              <a class="menu-link" href="https://docs.dymaticengine.com" target="_blank"><div>Docs
-                <i class="icon-external-link material-icons" style="font-size: 20px;">open_in_new</i>
-              </div></a>
-            </li>
-            <li class="menu-item">
-              <a class="menu-link" href="#" style=""><div>Products</div></a>
-            </li>
-            <li class="menu-item">
-              <a class="menu-link" href="#" style=""><div>About</div></a>
-            </li>
-          </ul>
-
-        </nav><!-- #primary-menu end -->
-        
-        <form class="top-search-form" action="search.html" method="get">
-          <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
-        </form>
-
-      </div>
-    </div>
-  </div>
-  <div class="header-wrap-clone" style="height: 101px;"></div>
-</header>
+<div id="__header"></div>
 
 <div class="HomeMainTitleContainer" style="margin-top: -100px;">
 
@@ -177,16 +119,20 @@
         <div class="col-lg-4 bottommargin-sm">
           <div style="height: 2px; width: 90%; background-color: rgba(255,255,255,0.7);"></div>
           <br>
-          <h2>Download Dymatic Engine</h2>
-          <p style="text-align: left; margin-left: 15px; margin-right: 15px;" >Get access to Dymatic's source code, download it, build and experience the full 3D toolset to create commercial quality games.</p>
-          <a href="https://www.github.com/BenC25/Dymatic" target="_blank"><button class="button-6" role="button" >DOWNLOAD</button></a>
+          <div data-animate="fadeIn" data-delay="0">
+            <h2>Download Dymatic Engine</h2>
+            <p style="text-align: left; margin-left: 15px; margin-right: 15px;" >Get access to Dymatic's source code, download it, build and experience the full 3D toolset to create commercial quality games.</p>
+          </div>
+          <a href="https://www.github.com/BenC25/Dymatic" target="_blank"><button id="DownloadButton" data-animate="fadeInUp" data-delay="300" class="button-6 not-animated" role="button" >DOWNLOAD</button></a>
         </div>
         <div class="col-lg-4 bottommargin-sm">
           <div style="height: 2px; width: 90%; background-color: rgba(255,255,255,0.7);"></div>
           <br>
-          <h2> Explore Documentation</h2>
-          <p style="text-align: left; margin-left: 15px; margin-right: 15px;" >Explore the complete documentation regarding all of Dymatic's core features and systems, as well as other ways to gain support.</p>
-          <a href="https://docs.dymaticengine.com" target="_blank"><button class="button-6" role="button" >VIEW DOCUMENTATION</button></a>
+          <div data-animate="fadeIn" data-delay="0">
+            <h2> Explore Documentation</h2>
+            <p style="text-align: left; margin-left: 15px; margin-right: 15px;" >Explore the complete documentation regarding all of Dymatic's core features and systems, as well as other ways to gain support.</p>
+          </div>
+          <a href="https://docs.dymaticengine.com" target="_blank"><button id="ViewDocumentationButton" data-animate="fadeInUp" data-delay="300" class="button-6 not-animated" role="button" >VIEW DOCUMENTATION</button></a>
         </div>
         <div class="col-lg-2 bottommargin-sm"></div>
       </div>
@@ -239,55 +185,9 @@
     <div style="height: 3px; width: 100vw; background-color: #424242;"></div>
   </div>
   <br>
-  
 </div>
 
-<!-- Footer -->
-<div style="padding: 20px;">
-
-  <div class="col-md-12 col-lg-12">
-    <div class="widget clearfix" style="margin-bottom: -20px;">
-      <div class="row text-center">
-        <div class="col-lg-2 bottommargin-sm">
-          <br>
-          <h5>PRODUCTS</h5>
-          <a href="https://www.dymaticengine.com"><div>Dymatic Engine</div></a>
-          <br>
-          <a href="https://www.github.com/BenC25/Dymatic"><div>Source Code</div></a>
-        </div>
-        <div class="col-lg-2 bottommargin-sm">
-          <br>
-          <h5>PRODUCTS</h5>
-          <a href="https://docs.dymaticengine.com"><div>Documentation</div></a>
-        </div>
-        <div class="col-lg-1 bottommargin-sm"></div>
-        <div class="col-lg-2 bottommargin-sm">
-          <!-- Logo -->
-          <img class="unselectable_item" src="assets/Icons/Logo/white/Logo.svg" height="100vh" >
-        </div>
-        <div class="col-lg-1 bottommargin-sm "></div>
-        <div class="col-lg-4 bottommargin-sm">
-          <!-- Headquatered -->
-          <div style="position: relative; text-align: center;">
-            <img class="unselectable_item" src="assets/Images/World.png" style="opacity: 0.3;">
-            <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Sydney, Australia</p>
-
-            <br>
-            <p style="text-align: center;">dymaticengineuser@gmail.com</p>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div style="height: 3px; width: 80vw; background-color: #424242; margin-left: 10vw;"></div>
-  <br>
-  <p style="text-align: center;"><small>Copyright © 2022 Dymatic Technologies. All rights reserved</small></p>
-
-  <div id="gotoTop" class="material-icons unselectable_item" style="display: block;">expand_less</div>
-
-</div>
+<div id="__footer"></div>
 
 <!-- Scripts -->
 <script src="js/jquery-3.4.1.min.js"></script>
@@ -304,6 +204,10 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
 
 <script src="js/functions.js"></script>
+
+<!-- Local page function implimentations -->
+<script src="js/Pages/Home.js"></script>
+<!-- Common HTML script -->
 <script src="js/DymaticEngine.js"></script>
 
 </body>
