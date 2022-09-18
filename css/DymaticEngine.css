@@ -214,8 +214,8 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 	display: none;
 }
 
-.pagechangediv{opacity: 0; transition: all 0.2s ease;}
-.faded{opacity: 1; transition: all 0.2s ease;}
+.pagechangediv{opacity: 0; transition: all 0.5s ease;}
+.faded{opacity: 1; transition: all 0.5s ease;}
 
 #wrapper {
     -webkit-perspective: 1000;
@@ -311,4 +311,36 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 .gotoTop
 {
 	background-color: blue;
+}
+
+.hoverUnderline:hover 
+{
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+}
+
+.commit-vl
+{	
+	border-left: 2px solid grey;
+	transform: scaleY(200%);
+}
+
+.commit-vl:nth-of-type(1)
+{
+	transform-origin: bottom left;
+}
+
+.commit-vl:nth-of-type(2)
+{
+	transform-origin: top left;
+}
+
+.commit-parent {
+	padding: 20px;
+	display: table;
+}
+  
+.commit-child {
+	float: left;
+    padding: 20px;
 }

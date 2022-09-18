@@ -1,55 +1,61 @@
 <!doctype html>
 <html dir="ltr" lang="en-US">
 <meta charset="UTF-8">
-  <head>
-    <meta name="google-site-verification" content="c2ADviDM_fCwGdnJ8gqAV8mhwRNe8FNcpT7Avkmomco"/>
+<head>
+  <title>Dymatic Engine</title>
+  <meta name="google-site-verification" content="c2ADviDM_fCwGdnJ8gqAV8mhwRNe8FNcpT7Avkmomco"/>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dymatic Engine</title>
-    <link rel="shortcut icon" type="image/png" href="assets/Icons/DymaticLogoWhite.png" width="200">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="assets/Icons/DymaticLogoWhite.png" width="200">
 
-    <!-- Disable tap highlight on IE -->
-    <meta name="msapplication-tap-highlight" content="no">
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Dymatic Engine">
-    <meta name="theme-color" content="#191c1e">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Dymatic Engine">
+  <meta name="theme-color" content="#191c1e">
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Dymatic Engine">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#191c1e">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Dymatic Engine">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#191c1e">
 
-    <!-- Tile icon for Win8 -->
-    <meta name="msapplication-TileColor" content="#3372DF">
-    <meta name="msapplication-navbutton-color" content="#191c1e">
+  <!-- Tile icon for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <meta name="msapplication-navbutton-color" content="#191c1e">
 
-    <link rel="apple-touch-icon" href="assets/Icons/DymaticLogoIcon.png">
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  <link rel="apple-touch-icon" href="assets/Icons/DymaticLogoIcon.png">
 
-    <link rel="stylesheet" href="css/bootstrap-4.4.1.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/swiper.css">
-    <link rel="stylesheet" href="css/dark.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
 
-    <link rel="stylesheet" href="css/DymaticEngine.css">
+  <!-- Attach stylesheets -->
+  <link rel="stylesheet" href="css/bootstrap-4.4.1.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/swiper.css">
+  <link rel="stylesheet" href="css/dark.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/custom.css">
 
-    <!-- Pre load Scripts -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    
+  <link rel="stylesheet" href="css/DymaticEngine.css">
+
+  <!-- Logo to be attached depending on browser color -->
+  <link rel="icon" href="assets/Icons/DymaticLogoBlack.png" id="light-scheme-icon">
+  <link rel="icon" href="assets/Icons/DymaticLogoWhite.png" id="dark-scheme-icon">
+
 </head>
 
 <body id="bodyelement" class="stretched dark has-plugin-easing has-plugin-bootstrap has-plugin-swiper has-plugin-animations has-plugin-counter has-plugin-linkscroll has-plugin-html5video" style="overflow-x:hidden;">
 
+<div id="page_cover" style="background-color:#151515; position:fixed; width:100%; height:100%; top:0px; left:0px; z-index:1000;"></div>
+
 <div id="__header"></div>
+
+<!----------- BEGIN PAGE CONTENT ----------->
 
 <div class="HomeMainTitleContainer" style="margin-top: -100px;">
 
@@ -190,54 +196,12 @@
   <br>
 </div>
 
+<!----------- END PAGE CONTENT ----------->
+
 <div id="__footer"></div>
 
-<!-- Import common scripts -->
-<script>
-  $("#__header").load("html/Header.html", function(){
-    $("#__footer").load("html/Footer.html", function(){
-
-      function loadScript( url, callback ) {
-        var script = document.createElement("script")
-  	    script.type = "text/javascript";
-        script.src = url;
-        script.onload = function () {
-          if (callback != null)
-            callback();
-        }
-        document.head.appendChild(script); 
-      }
-
-      loadScript("js/plugins.min.js", function() {
-        loadScript("js/SetFooterCounters.js", function() {
-          loadScript("js/bootstrap-4.4.1.js", function() {
-            loadScript("js/particles.js", function() {
-              loadScript("js/popper.min.js", function() {
-                loadScript("https://cdn.jsdelivr.net/npm/lax.js", function() {
-                  loadScript("https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js", function() {
-                    loadScript("js/functions.js", function() {
-                      loadScript("js/Pages/Home.js", function() {
-                        loadScript("js/DymaticEngine.js", function(){
-                          OnCreate();
-                      });
-                    });
-                  });
-                });
-              });
-            });
-          });
-        });
-      });
-      });
-    });
-  });
-</script>
+<script src="js/Pages/Home.js"></script>
+<script src="js/DymaticEngine.js"></script>
 
 </body>
-<link rel="icon"
-  href="assets/Icons/DymaticLogoBlack.png"
-  id="light-scheme-icon">
-<link rel="icon"
-  href="assets/Icons/DymaticLogoWhite.png"
-  id="dark-scheme-icon">
 </html>

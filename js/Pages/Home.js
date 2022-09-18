@@ -38,18 +38,7 @@ function FadeInLanguages() {
   }
 }
 
-// Capture scroll events
-$(window).scroll(function(){
-    checkAnimation();
-    FadeInLanguages();
-});
-
-function InitLaxJSOverride() {  
-    
-    // Add a driver that we use to control our animations
-    lax.addDriver('scrollY', function () {
-      return window.scrollY
-    });
+function InitLaxJSOverride() {
   
     // Add animation bindings to elements
     lax.addElements('#BackgroundParallaxVideo', {
@@ -77,20 +66,34 @@ function LoadMainVideo()
     document.querySelector("#BackgroundParallaxVideo").innerHTML = '<source src="assets/Videos/MainHomeBackgroundLoop.mp4" type"video/mp4">';
 }
 
+// Overrides (local page implementation)
 function OnCreateOverride()
 {
     checkAnimation();
     InitLaxJSOverride();
 
     var $elem = $(".HomeLoadOverlay");
-
     // If the animation has already been started
     if (!$elem.hasClass("hide")) {$elem.addClass("hide")};
+
+    $(window).scroll(function(){
+      checkAnimation();
+      FadeInLanguages();
+    });
   
     // Trigger a particle resize so everything is sized correctly
     ParticleResizeEvent();
 
     LoadMainVideo();
+}
+
+function OnScriptLoadOverride(callback)
+{
+  loadScript("js/SetFooterCounters.js", function() {
+    loadScript("js/particles.js", function() {
+      callback();
+    });
+  });
 }
 
 // Callbacks
