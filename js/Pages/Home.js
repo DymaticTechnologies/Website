@@ -1,6 +1,6 @@
 // Check if it's time to start the animation.
 function checkAnimation() {
-    var $elem = $('.FadeInAnimationEarly, .FadeInAnimationNormal, .FadeInAnimationLate');
+  let $elem = $('.FadeInAnimationEarly, .FadeInAnimationNormal, .FadeInAnimationLate');
 
     // If the animation has already been started
     if ($elem.hasClass('start')) return;
@@ -12,7 +12,7 @@ function checkAnimation() {
 }
 
 function FadeInLanguages() {
-  var langBreakdown = document.getElementById("LanguageBreakdown");
+  let langBreakdown = document.getElementById("LanguageBreakdown");
   if (isElementInViewport(langBreakdown)) {
     for (let i = 0; i < 5; i++) {
       setTimeout(function(){
@@ -22,17 +22,17 @@ function FadeInLanguages() {
     }
   }
 
-  var editorScreenshotLogo = document.getElementById("logoOntop");
+  let editorScreenshotLogo = document.getElementById("logoOntop");
   if (isElementInViewport(editorScreenshotLogo)) {
     setTimeout(function(){editorScreenshotLogo.classList.remove("fadeInUp");}, 1500);
   }
 
-  var downloadButton = document.getElementById("DownloadButton");
+  let downloadButton = document.getElementById("DownloadButton");
   if (isElementInViewport(downloadButton)) {
     setTimeout(function(){downloadButton.classList.remove("fadeInUp");}, 1500);
   }
 
-  var viewDocumentationButton = document.getElementById("ViewDocumentationButton");
+  let viewDocumentationButton = document.getElementById("ViewDocumentationButton");
   if (isElementInViewport(viewDocumentationButton)) {
     setTimeout(function(){viewDocumentationButton.classList.remove("fadeInUp");}, 1500);
   }
@@ -60,12 +60,6 @@ function InitLaxJSOverride() {
     });
 }
 
-function LoadMainVideo()
-{
-  if ($(window).width() >= 600)
-    document.querySelector("#BackgroundParallaxVideo").innerHTML = '<source src="assets/Videos/MainHomeBackgroundLoop.mp4" type"video/mp4">';
-}
-
 // Overrides (local page implementation)
 function OnCreateOverride()
 {
@@ -83,8 +77,6 @@ function OnCreateOverride()
   
     // Trigger a particle resize so everything is sized correctly
     ParticleResizeEvent();
-
-    LoadMainVideo();
 }
 
 function OnScriptLoadOverride(callback)

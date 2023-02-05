@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @font-face{
-	font-family: 'Futura-Light';
-	src: url("../assets/Fonts/Futura/Futura Std Light.ttf");
+	font-family: 'Raleway';
+	src: url("../assets/Fonts/Raleway/Raleway-Regular.ttf");
 }
 @font-face{
 	font-family: 'Neuzeit-Grotesk';
@@ -18,12 +18,12 @@ html {
 body
 {
 	/*background-color: #292929;*/
-	font-family: Futura-Light;
+	font-family: Raleway;
 }
 
 h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
   	color: white;
-	font-family: Futura-Light;
+	font-family: Raleway;
 }
 
 .DymaticMainCircleLogo
@@ -97,11 +97,53 @@ h1, h2, h3, h4, h5, h6, p, a, button, small, .NormalText {
 	z-index: -5;
 }
 
+@keyframes pulse 
+{
+	0% {
+	  transform: scale(1);
+	}
+	50% {
+	  transform: scale(1.25);
+	}
+	100% {
+	  transform: scale(1);
+	}
+}
+
+.BackgroundGradient
+{
+	/*Fallback if gradeints don't work */
+	background: #191c1e;
+	/*Linear gradient... */
+	background: 
+		radial-gradient(
+		 at center, rgb(46, 62, 72), #191c1e
+		);
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: -1000;
+
+	animation: pulse 5s ease-in-out infinite;
+}
+
 .HomeMainTitleContainer
 {
 	position: relative;
 	margin-bottom: 20px;
 	overflow: hidden;
+	height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+	.HomeMainTitleContainer
+	{
+		height: calc(100vh + 51px);
+	}
+	.BackgroundGradient
+	{
+		height: calc(100vh + 51px);
+	}
 }
 
 .HomeMainTitleContainerHider
