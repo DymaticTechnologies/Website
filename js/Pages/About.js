@@ -2,7 +2,7 @@
 function LoadContributors()
 {
     // Get all contributors
-    $.getJSON('https://api.github.com/repos/BenC25/Dymatic/contributors', function(data) {
+    $.getJSON('https://api.github.com/repos/bencraighill/Dymatic/contributors', function(data) {
 
         for (contributor of data)
         {
@@ -41,7 +41,7 @@ function LoadContributors()
 var commits;
 function LoadCommits()
 {
-    $.getJSON('https://api.github.com/repos/benc25/dymatic/commits?per_page=1000', function(data) {
+    $.getJSON('https://api.github.com/repos/bencraighill/dymatic/commits?per_page=1000', function(data) {
         commits = data;
         AppendCommit(1);
     });
@@ -72,7 +72,7 @@ function AppendCommit(depth)
                         <div style="height:90px; margin-left:50%;" class="commit-vl hidden"></div>
                     </div>
                     <div id="commit-` + commit_index + `" class="commit-child" style="background:rgba(75, 75, 75, 0.1); border:solid grey 1px; border-radius:50px; height:100%; width:calc(75vw);">
-                        <h4 style="width:100%;">` + commit["commit"]["message"] + ` <a href="https://www.github.com/BenC25/Dymatic/commit/` + commit["sha"] + `"><span style="color:lightblue; cursor: pointer;" class="hoverUnderline">(` + commit["sha"].substring(0, 7) + `)</span></a></h4>
+                        <h4 style="width:100%;">` + commit["commit"]["message"] + ` <a href="https://www.github.com/bencraighill/Dymatic/commit/` + commit["sha"] + `"><span style="color:lightblue; cursor: pointer;" class="hoverUnderline">(` + commit["sha"].substring(0, 7) + `)</span></a></h4>
                         <img class="unselectable_item" style="border-radius: 50%; height:75px;" src="` + commit["author"]["avatar_url"] + `">
                         <a href="https://www.github.com/` + commit["committer"]["login"] + `"><p class="hoverUnderline" style="display:inline;">` + commit["committer"]["login"] + `</p></a>
                         <p style="color:grey; display:inline;">committed on ` + dateReadable + `</p>
@@ -82,9 +82,9 @@ function AppendCommit(depth)
                             <p style="display:inline-block; color:#F84F31"><span class="material-icons">remove_circle_outline</span> ` + data["stats"]["deletions"] + `</p>
                         </div>
                         <div style="display:inline; float:right;" class="unselectable_item">
-                            <a href="https://www.github.com/BenC25/Dymatic/commit/` + commit["sha"] + `">
+                            <a href="https://www.github.com/bencraighill/Dymatic/commit/` + commit["sha"] + `">
                             <p class="material-icons">content_paste</p></a>
-                            <a href="https://www.github.com/BenC25/Dymatic/tree/` + commit["sha"] + `">
+                            <a href="https://www.github.com/bencraighill/Dymatic/tree/` + commit["sha"] + `">
                             <p class="unselectable_item material-icons">code</p></a>
                         </div>
                     </div>

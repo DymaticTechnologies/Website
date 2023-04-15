@@ -1,12 +1,12 @@
 
 // Retrieve and set GitHub Stars
-$.getJSON('https://api.github.com/repos/BenC25/Dymatic', function(data) {
+$.getJSON('https://api.github.com/repos/bencraighill/Dymatic', function(data) {
     var stars = data["stargazers_count"];
     $("#github_star_count").attr("data-to", stars);
 });
 
 // Retrieve and set Github Watchers
-$.getJSON('https://api.github.com/repos/BenC25/Dymatic', function(data) {
+$.getJSON('https://api.github.com/repos/bencraighill/Dymatic', function(data) {
     // See https://github.com/orgs/community/discussions/24795 as to why subscriber count is used.
     var watchers = data["subscribers_count"];
     $("#github_watcher_count").attr("data-to", watchers);
@@ -50,14 +50,14 @@ const base_url = 'https://api.github.com';
         return first_commit_hash;
     }
     
-    let owner = 'BenC25';
+    let owner = 'bencraighill';
     let repo = 'Dymatic';
     let sha = 'Development';
     $("#github_commit_count").attr("data-to", get_all_commits_count(owner, repo, sha));
 
 
 // Update Language Breakdown
-$.getJSON('https://api.github.com/repos/BenC25/Dymatic/languages', function(data) {
+$.getJSON('https://api.github.com/repos/bencraighill/Dymatic/languages', function(data) {
     // See https://github.com/orgs/community/discussions/24795 as to why subscriber count is used.
     var langBreakdown = document.getElementById("LanguageBreakdown");
 
