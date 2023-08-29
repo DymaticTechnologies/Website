@@ -35,36 +35,6 @@ function setupPage()
   };
 }
 
-// Dynamic Logo Color
-'use strict';
-
-function setupIcons() {
-  const lightSchemeIcon = document.querySelector('#light-scheme-icon');
-  const darkSchemeIcon = document.querySelector('#dark-scheme-icon');
-
-  function setLight() {
-    document.head.append(lightSchemeIcon);
-    darkSchemeIcon.remove();
-  }
-
-  function setDark() {
-    document.head.append(darkSchemeIcon);
-    lightSchemeIcon.remove();
-  }
-
-
-  const matcher = window.matchMedia('(prefers-color-scheme:dark)');
-  function onUpdate() {
-    if (matcher.matches) {
-      setDark();
-    } else {
-      setLight();
-    }
-  }
-  matcher.addListener(onUpdate);
-  onUpdate();
-}
-
 function DisableSelection()
 {
   var elements = document.getElementsByClassName("unselectable_item");
@@ -110,7 +80,6 @@ function OnCreate()
 {
   // Common setup calls
   setupPage();
-	setupIcons();
   DisableSelection();
   InitLaxJS();
 
