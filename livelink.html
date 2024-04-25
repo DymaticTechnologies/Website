@@ -1,80 +1,94 @@
+<h1>Dymatic Live Link</h1>
+<h1>Version 1.0.1</h1>
+<p id="accelerationText">No Acceleration Detected</p>
+<p id="rotationText">No Rotation Detected</p>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client</title>
-</head>
-<body>
-    <h1>Live Link V1.0.3</h1>
-    <input type="text" id="addressInput" placeholder="Enter Host Address...">
-    <button id="accelPermsButton" onclick="getMotion()" style="height:50px;">Get Accelerometer Permissions</button>
-    <button onclick="beginSend()">Start Transfer</button>
+    <title>Dymatic Live Link</title>
 
-    <script>
-        var transmitting = false;
+    <style>
+    .indicatorDot{
+        width: 30px;
+        height: 30px;
+        background-color: #ffab56;
+        border-radius: 50%;
+        position:fixed;
+    }
+    </style>
 
-        function beginSend()
-        {
-            transmitting = true;
-        }
+<script>    
+var px = 50; // Position x and y
+var py = 50;
+var vx = 0.0; // Velocity x and y
+var vy = 0.0;
+var updateRate = 1/60; // Sensor refresh rate
 
-        function sendData(message)
-        {
-            if (!transmitting)
-                return;
+function handleMotion(event) {
+  var accelerationX = event.accelerationIncludingGravity.x; // Acceleration along the x-axis
+  var accelerationY = event.accelerationIncludingGravity.y; // Acceleration along the y-axis
+  var accelerationZ = event.accelerationIncludingGravity.z; // Acceleration along the z-axis
+  var rotationRateAlpha = event.rotationRate.alpha; // Rate of rotation around the z-axis
+  var rotationRateBeta = event.rotationRate.beta; // Rate of rotation around the x-axis
+  var rotationRateGamma = event.rotationRate.gamma; // Rate of rotation around the y-axis
+  
+  document.getElementById("accelerationText").innerText = "<" + accelerationX + ", " + accelerationY + ", " + accelerationZ + ">";
+  document.getElementById("rotationText").innerText = "<" + rotationRateBeta + ", " + rotationRateGamma + ", " + rotationRateAlpha + ">";
+}
 
-            const PORT = 8080;
-            const HOST = document.getElementById('addressInput').value;
-
-            fetch(`http://${HOST}:${PORT}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain'
-                },
-                body: message
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log('Data from server:', data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-
-        function getMotion()
-        {
-            console.log("getMotion");
-            DeviceMotionEvent.requestPermission().then(response => {
-                console.log("requesting");
-                console.log(response);
-                if (response == 'granted')
-                {
-                    // Add a listener to get smartphone orientation 
-                    // in the alpha-beta-gamma axes (units in degrees)
-                    window.addEventListener('devicemotion', (motion) => {
-                        console.log("devicemotion");
-                        accelerationX = motion.accelerationIncludingGravity.x; // Acceleration along the x-axis
-                        accelerationY = motion.accelerationIncludingGravity.y; // Acceleration along the y-axis
-                        accelerationZ = motion.accelerationIncludingGravity.z; // Acceleration along the z-axis
-                        rotationRateAlpha = motion.rotationRate.alpha; // Rate of rotation around the z-axis
-                        rotationRateBeta = motion.rotationRate.beta; // Rate of rotation around the x-axis
-                        rotationRateGamma = motion.rotationRate.gamma; // Rate of rotation around the y-axis
-                        
-                        sendData("motion:\nacceleration:\t" + "<" + accelerationX + ", " + accelerationY + ", " + accelerationZ + ">" + "\nrotation rate\t" + "<" + rotationRateBeta + ", " + rotationRateGamma + ", " + rotationRateAlpha + ">");
-                    });
-                    window.addEventListener('deviceorientation', (event) => {
-                        console.log("deviceorientation");
-                        rotation_degrees = event.alpha; // compass tilt
-                        frontToBack_degrees = event.beta;
-                        leftToRight_degrees = event.gamma;
-
-                        sendData("orientation:\n\t" + "<" + frontToBack_degrees + ", " + leftToRight_degrees + ", " + rotation_degrees + ">");
-                    });
+function getAccel(){
+    DeviceMotionEvent.requestPermission().then(response => {
+        if (response == 'granted') {
+       // Add a listener to get smartphone orientation 
+           // in the alpha-beta-gamma axes (units in degrees)
+            window.addEventListener('devicemotion', handleMotion);
+            window.addEventListener('deviceorientation',(event) => {
+                // Expose each orientation angle in a more readable way
+                rotation_degrees = event.alpha; // compass tilt
+                frontToBack_degrees = event.beta;
+                leftToRight_degrees = event.gamma;
+                
+                // Update velocity according to how tilted the phone is
+                // Since phones are narrower than they are long, double the increase to the x velocity
+                vx = vx + leftToRight_degrees * updateRate*2; 
+                vy = vy + frontToBack_degrees * updateRate;
+                
+                // Update position and clip it to bounds
+                px = px + vx*.5;
+                if (px > 98 || px < 0){ 
+                    px = Math.max(0, Math.min(98, px)) // Clip px between 0-98
+                    vx = 0;
                 }
+
+                py = py + vy*.5;
+                if (py > 98 || py < 0){
+                    py = Math.max(0, Math.min(98, py)) // Clip py between 0-98
+                    vy = 0;
+                }
+                
+                dot = document.getElementsByClassName("indicatorDot")[0]
+                dot.setAttribute('style', "left:" + (px) + "%;" +
+                                              "top:" + (py) + "%;");
+                
             });
         }
-    </script>
+    });
+}
+
+</script>
+
+
+</head>
+<body style="background-color:lightblue;">
+
+<div id="main">
+    <button id="accelPermsButton" onclick="getAccel()" style="height:50px;">Get Accelerometer Permissions</button>
+
+
+    <div class="indicatorDot" style="left:30%; top:30%;"></div>
+</div>
+
 </body>
 </html>
