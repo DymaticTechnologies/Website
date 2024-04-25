@@ -6,15 +6,25 @@
     <title>Client</title>
 </head>
 <body>
-    <h1>Live Link V1.0.0</h1>
+    <h1>Live Link V1.0.1</h1>
     <input type="text" id="addressInput" placeholder="Enter Host Address...">
-    <input type="text" id="messageInput" placeholder="Enter message...">
-    <button onclick="sendMessage()">Send Message</button>
+    <button id="accelPermsButton" onclick="getMotion()" style="height:50px;">Get Accelerometer Permissions</button>
+    <button onclick="beginSend()">Start Transfer</button>
 
     <script>
-        function sendMessage() {
+        let transmitting = false;
+
+        function beginSend()
+        {
+            transmitting = true;
+        }
+
+        function sendData(message)
+        {
+            if (!transmitting)
+                return;
+
             const PORT = 8080;
-            const message = document.getElementById('messageInput').value;
             const HOST = document.getElementById('addressInput').value;
 
             fetch(`http://${HOST}:${PORT}`, {
@@ -30,6 +40,35 @@
             })
             .catch(error => {
                 console.error('Error:', error);
+            });
+        }
+
+        function getMotion()
+        {
+            DeviceMotionEvent.requestPermission().then(response => {
+                if (response == 'granted') {
+            // Add a listener to get smartphone orientation 
+                // in the alpha-beta-gamma axes (units in degrees)
+                    window.addEventListener('devicemotion', (event) =>
+                    {
+                        let accelerationX = event.accelerationIncludingGravity.x; // Acceleration along the x-axis
+                        let accelerationY = event.accelerationIncludingGravity.y; // Acceleration along the y-axis
+                        let accelerationZ = event.accelerationIncludingGravity.z; // Acceleration along the z-axis
+                        let rotationRateAlpha = event.rotationRate.alpha; // Rate of rotation around the z-axis
+                        let rotationRateBeta = event.rotationRate.beta; // Rate of rotation around the x-axis
+                        let rotationRateGamma = event.rotationRate.gamma; // Rate of rotation around the y-axis
+                        
+                        sendData("motion:\nacceleration:\t" + "<" + accelerationX + ", " + accelerationY + ", " + accelerationZ + ">" + "\nrotation rate\t" + "<" + rotationRateBeta + ", " + rotationRateGamma + ", " + rotationRateAlpha + ">");
+                    });
+                    window.addEventListener('deviceorientation',(event) =>
+                    {
+                        rotation_degrees = event.alpha; // compass tilt
+                        frontToBack_degrees = event.beta;
+                        leftToRight_degrees = event.gamma;
+
+                        sendData("orientation:\n\t" + "<" + frontToBack_degrees + ", " + leftToRight_degrees + ", " + rotation_degrees + ">");
+                    });
+                }
             });
         }
     </script>
