@@ -6,7 +6,7 @@
     <title>Client</title>
 </head>
 <body>
-    <h1>Live Link V1.0.2</h1>
+    <h1>Live Link V1.0.3</h1>
     <input type="text" id="addressInput" placeholder="Enter Host Address...">
     <button id="accelPermsButton" onclick="getMotion()" style="height:50px;">Get Accelerometer Permissions</button>
     <button onclick="beginSend()">Start Transfer</button>
@@ -45,12 +45,16 @@
 
         function getMotion()
         {
+            console.log("getMotion");
             DeviceMotionEvent.requestPermission().then(response => {
+                console.log("requesting");
+                console.log(response);
                 if (response == 'granted')
                 {
                     // Add a listener to get smartphone orientation 
                     // in the alpha-beta-gamma axes (units in degrees)
                     window.addEventListener('devicemotion', (motion) => {
+                        console.log("devicemotion");
                         accelerationX = motion.accelerationIncludingGravity.x; // Acceleration along the x-axis
                         accelerationY = motion.accelerationIncludingGravity.y; // Acceleration along the y-axis
                         accelerationZ = motion.accelerationIncludingGravity.z; // Acceleration along the z-axis
@@ -61,6 +65,7 @@
                         sendData("motion:\nacceleration:\t" + "<" + accelerationX + ", " + accelerationY + ", " + accelerationZ + ">" + "\nrotation rate\t" + "<" + rotationRateBeta + ", " + rotationRateGamma + ", " + rotationRateAlpha + ">");
                     });
                     window.addEventListener('deviceorientation', (event) => {
+                        console.log("deviceorientation");
                         rotation_degrees = event.alpha; // compass tilt
                         frontToBack_degrees = event.beta;
                         leftToRight_degrees = event.gamma;
